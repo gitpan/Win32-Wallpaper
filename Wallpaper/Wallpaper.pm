@@ -2,7 +2,7 @@ package Win32::Wallpaper;
 require Exporter;
 @Wallpaper::ISA    = qw(Exporter);
 @Wallpaper::EXPORT = qw(wallpaper);
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 use Win32::API;
 use Win32::AbsPath qw(RelativeToAbsolute);
@@ -13,6 +13,11 @@ sub wallpaper {
 
     my ( $file, $style ) = @_;
 
+    unless ($file) {
+    $CW = $Registry->{"CUser/Control Panel/Desktop/Wallpaper"};
+    return($CW);    
+    } 
+    
     open( IN, $file ) or die "Cannot open $file: $!";
     my ( $width, $height, $id ) = imgsize( \*IN );
     die "Only Windows BitMaP images supported. You used a $id."
@@ -74,7 +79,19 @@ Win32::Wallpaper - Modify Win32 Wallpaper
 
 =head1 DESCRIPTION
 
-With this Win32 module, you can set a new wallpaper image and style. Three styles are supported: center, stretch, and tile. Only Window BitMaP (BMP) images are supported at this time. This module will eventually be obsolete and no longer supported, with the release of my Win32::Desktop module, which will support the ActiveDesktop interface.  
+With this Win32 module, you can set a new wallpaper image and style. 
+Three styles are supported: center, stretch, and tile. Only Window BitMaP 
+(BMP) images are supported at this time. 
+
+You can also get the current wallpaper by calling the function without 
+parameters. For example:
+
+	my $current_wallpaper = wallpaper();
+	
+=head1 NOTES
+
+This will probably be the last release of this module, as I continue 
+working on a module that will support the activedesktop interface.
 
 =head1 AUTHOR
 
@@ -85,5 +102,5 @@ Mike Accardo <mikeaccardo@yahoo.com>
    Copyright (c) 2003, Mike Accardo. All Rights Reserved.
  This module is free software. It may be used, redistributed
 and/or modified under the terms of the Perl Artistic License
-     (see http://www.perl.com/perl/misc/Artistic.html)
+
 =cut

@@ -1,9 +1,11 @@
-Win32/Wallpaper version 0.01
+Win32/Wallpaper version 0.02
 ============================
 
-The Win32::Wallpaper module allows you to modify the wallpaper, or background image, on your Win32 desktop. BitMaPs (BMPs) are the only images supported. You can set three wallpaper styles: center, stretch, and tile.  
+The Win32::Wallpaper module allows you to modify the wallpaper, 
+or background image, on your Win32 desktop. BitMaPs (BMPs) are 
+the only images supported. 
 
-This module will eventually be obsolete and no longer supported, with the release of my Win32::Desktop module, which will support the ActiveDesktop interface.        
+You can set three wallpaper styles: center, stretch, and tile.  
 
 INSTALLATION
 
