@@ -2,10 +2,10 @@ package Win32::Wallpaper;
 require Exporter;
 @Wallpaper::ISA    = qw(Exporter);
 @Wallpaper::EXPORT = qw(wallpaper);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 use Win32::API;
-use Win32::AbsPath qw(RelativeToAbsolute);
+use File::Spec::Functions qw(rel2abs);
 use Win32::TieRegistry(Delimiter=>"/");
 use Image::Size;
 
@@ -14,7 +14,7 @@ sub wallpaper {
     my ( $file, $style ) = @_;
 
     unless ($file) {
-    $CW = $Registry->{"CUser/Control Panel/Desktop/Wallpaper"};
+    my $CW = $Registry->{"CUser/Control Panel/Desktop/Wallpaper"};
     return($CW);    
     } 
     
@@ -51,7 +51,7 @@ sub wallpaper {
 
     }
 
-    $file = RelativeToAbsolute $file;
+    $file = rel2abs $file;
 
     my $SystemParametersInfo =
       new Win32::API(qw(user32 SystemParametersInfoA NNPN N)) || die $^E;

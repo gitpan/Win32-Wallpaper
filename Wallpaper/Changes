@@ -1,8 +1,0 @@
-Revision history for Perl extension Win32::Wallpaper.
-
-0.01  Thu Jun 19 2003
-	- original version
-
-0.02  Mon Jun 24 2003
-      - fixed makefile
-      - calling wallpaper w/o parameters now gives you the current wallpaper

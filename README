@@ -1,4 +1,4 @@
-Win32/Wallpaper version 0.02
+Win32/Wallpaper version 0.03
 ============================
 
 The Win32::Wallpaper module allows you to modify the wallpaper, 
@@ -20,7 +20,7 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
- Win32::API, Win32::TieRegistry, Win32::AbsPath, Image::Size
+ Win32::API, Win32::TieRegistry, Image::Size
 
 COPYRIGHT AND LICENCE
 
