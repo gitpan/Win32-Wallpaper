@@ -1,8 +1,8 @@
 package Win32::Wallpaper;
 require Exporter;
-@Wallpaper::ISA    = qw(Exporter);
-@Wallpaper::EXPORT = qw(wallpaper);
-$VERSION = '0.03';
+@Win32::Wallpaper::ISA    = qw(Exporter);
+@Win32::Wallpaper::EXPORT = qw(wallpaper);
+$VERSION = '0.04';
 
 use Win32::API;
 use File::Spec::Functions qw(rel2abs);
